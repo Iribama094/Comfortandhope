@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Colors - Primary */
+  --color-primary: #2F6B3C;
+  --color-primary-dark: #1F3A2B;
+  --color-primary-light: #3D8A4E;
+
+  /* Colors - Accent */
+  --color-accent: #F4B400;
+  --color-accent-dark: #D9A000;
+  --color-accent-light: #FFD54F;
+
+  /* Colors - Neutrals */
+  --color-background: #ffffff;
+  --color-foreground: #1F3A2B;
+  --color-body: #4B5563;
+  --color-muted: #6B7280;
+  --color-border: #E5E7EB;
+  --color-surface: #F9FAFB;
+
+  /* Typography */
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-body);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Smooth scroll for in-page anchors */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar globally (keep functionality) — aggressive cross-browser */
+* {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE/Edge legacy */
+}
+*::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* ---------------- Keyframes ---------------- */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ken-burns {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.05) translate(-0.6%, -0.4%); }
+}
+
+@keyframes page-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ---------------- Utility classes ---------------- */
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease both;
+}
+
+.animate-ken-burns {
+  animation: ken-burns 20s ease-in-out infinite alternate;
+}
+
+.animate-page-fade {
+  animation: page-fade 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Scroll-reveal: initial hidden state, plus .is-visible class applied by IO */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Focus ring — accessible, consistent across the app */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------------- Inline page heroes ----------------
+   Target ANY <section class="bg-primary-dark"> whose first-child div directly
+   contains a breadcrumb <nav class="mb-8">. That pattern is unique to page
+   heroes — CTAs don't have breadcrumbs, so they're never affected. PageHero
+   image variant has a different structure (image div first), so it's also
+   safe from this rule. */
+section.bg-primary-dark:has(> div:first-child > nav.mb-8) {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+section.bg-primary-dark:has(> div:first-child > nav.mb-8)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=2400&q=80");
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+section.bg-primary-dark:has(> div:first-child > nav.mb-8)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(31, 58, 43, 0.95) 0%,
+    rgba(31, 58, 43, 0.72) 45%,
+    rgba(31, 58, 43, 0.45) 100%
+  );
+  z-index: -1;
+}
+
+/* ---------------- Form inputs base ---------------- */
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+textarea,
+select {
+  transition: border-color var(--duration-base) var(--ease-out-expo),
+              background-color var(--duration-base) var(--ease-out-expo),
+              box-shadow var(--duration-base) var(--ease-out-expo);
+}
+
+/* Subtle inset shadow on focus for form inputs */
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  box-shadow: 0 0 0 4px rgba(47, 107, 60, 0.08);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+/* Smooth gradient text utility */
+.text-gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
