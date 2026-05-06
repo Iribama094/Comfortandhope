@@ -29,9 +29,10 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
-/* Smooth scroll for in-page anchors */
+/* Smooth scroll for in-page anchors — applied selectively via JS, not globally,
+   so programmatic scroll-to-top on navigation stays instant (no visible scroll) */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 /* Hide scrollbar globally (keep functionality) — aggressive cross-browser */
@@ -81,6 +82,11 @@ body::-webkit-scrollbar {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -107,6 +113,10 @@ body::-webkit-scrollbar {
 
 .animate-page-fade {
   animation: page-fade 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-page-enter {
+  animation: page-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .animate-marquee {
