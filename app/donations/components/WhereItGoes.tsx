@@ -1,15 +1,31 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Utensils,
+  Brain,
+  GraduationCap,
+  HandHeart,
+  Users,
+  Home,
+  LifeBuoy,
+  Hammer,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const areas = [
-  "Food and Basic Needs Outreach",
-  "Mental Health Support",
-  "Girl-Child Empowerment",
-  "Widows Support Program",
-  "Community Outreach Missions",
-  "Orphanage and Shelter Development",
-  "Emergency Relief Efforts",
-  "Education & Skills Training",
+interface Area {
+  label: string;
+  icon: LucideIcon;
+}
+
+const areas: Area[] = [
+  { label: "Food and Basic Needs Outreach", icon: Utensils },
+  { label: "Mental Health Support", icon: Brain },
+  { label: "Girl-Child Empowerment", icon: GraduationCap },
+  { label: "Widows Support Program", icon: HandHeart },
+  { label: "Community Outreach Missions", icon: Users },
+  { label: "Orphanage and Shelter Development", icon: Home },
+  { label: "Emergency Relief Efforts", icon: LifeBuoy },
+  { label: "Education & Skills Training", icon: Hammer },
 ];
 
 export default function WhereItGoes() {
@@ -30,17 +46,22 @@ export default function WhereItGoes() {
         </div>
 
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {areas.map((area) => (
-            <div
-              key={area}
-              className="rounded-xl border border-border bg-white p-6 text-center"
-            >
-              <div className="mx-auto h-12 w-12 rounded-full bg-primary/10" />
-              <p className="mt-4 text-sm font-semibold text-foreground">
-                {area}
-              </p>
-            </div>
-          ))}
+          {areas.map((area) => {
+            const Icon = area.icon;
+            return (
+              <div
+                key={area.label}
+                className="group rounded-xl border border-border bg-white p-6 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md"
+              >
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <p className="mt-4 text-sm font-semibold text-foreground">
+                  {area.label}
+                </p>
+              </div>
+            );
+          })}
         </div>
 
         <p className="mt-10 text-center text-sm font-medium italic text-primary">
