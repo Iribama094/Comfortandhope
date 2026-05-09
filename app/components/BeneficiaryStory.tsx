@@ -16,7 +16,7 @@ export default function BeneficiaryStory() {
           <div className="relative">
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-2xl shadow-primary/10">
               <Image
-                src="https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=1200&q=80"
+                src="https://images.unsplash.com/photo-1567057419565-4349c49d8a04?auto=format&fit=crop&w=1200&q=80"
                 alt="Amara, a scholarship recipient"
                 fill
                 className="object-cover transition-transform duration-700 hover:scale-105"

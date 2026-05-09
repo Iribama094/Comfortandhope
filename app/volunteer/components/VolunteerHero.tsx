@@ -12,7 +12,7 @@ export default function VolunteerHero() {
       size="lg"
       variant="split"
       image={{
-        src: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=1600&q=80",
+        src: "https://images.unsplash.com/photo-1473649085228-583485e6e4d7?auto=format&fit=crop&w=1600&q=80",
         alt: "Volunteers and community members",
       }}
     >

@@ -90,7 +90,7 @@ export default function TeamPage() {
         crumbs={[{ label: "About", href: "/about" }, { label: "Team" }]}
         variant="image"
         image={{
-          src: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=2400&q=80",
+          src: "https://images.unsplash.com/photo-1473649085228-583485e6e4d7?auto=format&fit=crop&w=2400&q=80",
           alt: "Children of a Nigerian community in a classroom",
         }}
       />

@@ -10,7 +10,7 @@ export default function FAQsHero() {
       crumbs={[{ label: "FAQs" }]}
       variant="image"
       image={{
-        src: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=2400&q=80",
+        src: "https://images.unsplash.com/photo-1617056239820-8ce90ba48193?auto=format&fit=crop&w=2400&q=80",
         alt: "A young girl smiling, supported by Comfort & Hope",
       }}
     />

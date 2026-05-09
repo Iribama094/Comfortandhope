@@ -69,7 +69,7 @@ export default function BoardPage() {
         crumbs={[{ label: "About", href: "/about" }, { label: "Board" }]}
         variant="image"
         image={{
-          src: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=2400&q=80",
+          src: "https://images.unsplash.com/photo-1459183885421-5cc683b8dbba?auto=format&fit=crop&w=2400&q=80",
           alt: "African community members",
         }}
       />

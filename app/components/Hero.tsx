@@ -17,28 +17,28 @@ interface Slide {
 const slides: Slide[] = [
   {
     image:
-      "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=2400&q=80",
+      "https://images.unsplash.com/photo-1473649085228-583485e6e4d7?auto=format&fit=crop&w=2400&q=80",
     alt: "Children in a Nigerian classroom raising their hands",
     lead: "Where there is life,",
     accent: "there is hope",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=2400&q=80",
+      "https://images.unsplash.com/photo-1459183885421-5cc683b8dbba?auto=format&fit=crop&w=2400&q=80",
     alt: "Children of an African community sharing a moment of joy",
     lead: "We rise by",
     accent: "lifting others",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=2400&q=80",
+      "https://images.unsplash.com/photo-1617056239820-8ce90ba48193?auto=format&fit=crop&w=2400&q=80",
     alt: "A young girl smiling on her way to school",
     lead: "Small actions,",
     accent: "lasting change",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=2400&q=80",
+      "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=2400&q=80",
     alt: "African children gathered together",
     lead: "Hope is",
     accent: "a verb",

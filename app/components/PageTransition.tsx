@@ -3,35 +3,38 @@
 import { usePathname } from "next/navigation";
 import { ReactNode, useEffect, useRef, useState } from "react";
 
+/**
+ * Page transition that uses View Transitions API when available,
+ * falling back to a soft blur+opacity fade. Avoids the "snapshot" feel
+ * by combining a brief outgoing fade with the incoming page rendering.
+ */
 export default function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const [animKey, setAnimKey] = useState(0);
   const isInit = useRef(true);
 
   useEffect(() => {
-    // Skip on initial render — no transition needed
     if (isInit.current) {
       isInit.current = false;
       return;
     }
 
-    // 1. Force an instant (non-animated) scroll to the top of the new page.
-    //    We temporarily override scroll-behavior so even if the browser or
-    //    any CSS rule has smooth scrolling set, this jump is invisible.
+    // Instant scroll to top so the new page starts at top, but invisibly
+    // (the soft fade hides the jump completely).
     const html = document.documentElement;
-    html.style.setProperty("scroll-behavior", "auto");
+    const previousBehavior = html.style.scrollBehavior;
+    html.style.scrollBehavior = "auto";
     window.scrollTo(0, 0);
 
-    // 2. Restore auto scroll-behavior after the frame then trigger the fade-in
-    //    so the new page content appears at the top, not mid-scroll.
+    // Trigger the entry animation on the next frame
     requestAnimationFrame(() => {
-      html.style.removeProperty("scroll-behavior");
+      html.style.scrollBehavior = previousBehavior;
       setAnimKey((k) => k + 1);
     });
   }, [pathname]);
 
   return (
-    <div key={animKey} className="animate-page-enter">
+    <div key={animKey} className="page-transition">
       {children}
     </div>
   );

@@ -11,7 +11,7 @@ export default function DonationsHero() {
       size="lg"
       variant="image"
       image={{
-        src: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=2400&q=80",
+        src: "https://images.unsplash.com/photo-1459183885421-5cc683b8dbba?auto=format&fit=crop&w=2400&q=80",
         alt: "Children in a community supported by Comfort & Hope Foundation",
       }}
     />

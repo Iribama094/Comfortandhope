@@ -23,7 +23,7 @@ export const programs: Program[] = [
       "Across Northern Nigeria, millions of girls are out of school due to economic pressure, early marriage, and cultural barriers. Our Girl Child Education program tackles the problem from three angles: full scholarships covering tuition, supplies, and uniforms; mentorship pairings with women leaders; and community engagement to shift family attitudes around girls' schooling. We measure success by retention to secondary completion — not just enrolment.",
     image: "/programs/images/Girl Child.png",
     heroImage:
-      "https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1473649085228-583485e6e4d7?auto=format&fit=crop&w=2000&q=80",
     stat: { value: "1,400+", label: "girls enrolled" },
     highlights: [
       "Full scholarships through secondary school",
@@ -44,7 +44,7 @@ export const programs: Program[] = [
       "More than 60% of rural Nigerians live more than 10 km from the nearest functional clinic. Our Healthcare Access program runs mobile medical outreach, maternal-health clinics, and a community health-worker training pipeline that places trained locals back in their own villages. We focus on what catches preventable deaths early: antenatal care, malaria treatment, and child vaccination.",
     image: "/programs/images/Health Care Access.png",
     heroImage:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1627423896085-e3e694d88e40?auto=format&fit=crop&w=2000&q=80",
     stat: { value: "12,000+", label: "patients served annually" },
     highlights: [
       "Monthly mobile medical outreach in 30+ villages",
@@ -65,7 +65,7 @@ export const programs: Program[] = [
       "When women and girls walk hours each day for water, schooling and economic activity collapse. Our Clean Water Initiative drills boreholes, installs solar-powered pumps, and trains village water committees on long-term maintenance — because a well that breaks in two years isn't a solution. We commission only when the maintenance plan is funded for five years.",
     image: "/programs/images/Clean Water Initiative.png",
     heroImage:
-      "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1567057419565-4349c49d8a04?auto=format&fit=crop&w=2000&q=80",
     stat: { value: "14", label: "wells commissioned this year" },
     highlights: [
       "Solar-pumped boreholes serving 1,000+ each",
@@ -86,7 +86,7 @@ export const programs: Program[] = [
       "When floods, displacement, or other crises hit, the first 72 hours determine survival rates. Our Emergency Relief program pre-positions food, water, and medical supplies in three regional hubs and partners with local councils for 48-hour response. We then stay 6–12 months past the crisis to support rebuilding — the work most relief organizations don't do.",
     image: "/programs/images/Emergency Relief.png",
     heroImage:
-      "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=2000&q=80",
+      "https://images.unsplash.com/photo-1459183885421-5cc683b8dbba?auto=format&fit=crop&w=2000&q=80",
     stat: { value: "48hr", label: "response time" },
     highlights: [
       "Pre-positioned supplies in 3 regional hubs",

@@ -10,7 +10,7 @@ export default function ContactHero() {
       crumbs={[{ label: "Contact" }]}
       variant="image"
       image={{
-        src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=2400&q=80",
+        src: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=2400&q=80",
         alt: "African community members and children",
       }}
     />
