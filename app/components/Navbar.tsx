@@ -131,7 +131,7 @@ export default function Navbar() {
 
   const logoTextPrimary = "text-white";
   const logoTextSecondary = "text-white/75";
-  const logoFilter = "brightness-0 invert";
+  const logoFilter = "";
 
   return (
     <>
