@@ -9,6 +9,7 @@ export default function FloatingActions() {
   const [show, setShow] = useState(false);
   const pathname = usePathname();
   const isDonationsPage = pathname.startsWith("/donations");
+  const isStudio = pathname.startsWith("/studio");
 
   useEffect(() => {
     const onScroll = () => setShow(window.scrollY > 400);
@@ -18,7 +19,7 @@ export default function FloatingActions() {
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-  if (!show) return null;
+  if (!show || isStudio) return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">

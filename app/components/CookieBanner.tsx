@@ -2,18 +2,22 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Cookie, X } from "lucide-react";
 
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
+  const pathname = usePathname();
+  const isStudio = pathname.startsWith("/studio");
 
   useEffect(() => {
+    if (isStudio) return;
     const consent = localStorage.getItem("cah-cookie-consent");
     if (!consent) {
       const timer = setTimeout(() => setVisible(true), 1500);
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [isStudio]);
 
   function accept() {
     localStorage.setItem("cah-cookie-consent", "accepted");
@@ -25,7 +29,7 @@ export default function CookieBanner() {
     setVisible(false);
   }
 
-  if (!visible) return null;
+  if (!visible || isStudio) return null;
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 px-4 pb-4 sm:px-6 sm:pb-6">

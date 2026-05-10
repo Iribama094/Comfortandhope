@@ -99,10 +99,34 @@ export default function ContactContent() {
       return;
     }
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1400));
-    setSubmitting(false);
-    setSubmitted(true);
-    toast("success", "Message sent! We'll get back to you within 24 hours.");
+    try {
+      const subjectParts = [
+        ...form.reasons,
+        form.location ? `(${form.location})` : "",
+      ].filter(Boolean);
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: form.name,
+          email: form.email,
+          phone: form.phone,
+          subject: subjectParts.join(" · "),
+          message: `${form.message}\n\nPreferred response: ${form.responseMethod}`,
+        }),
+      });
+      if (!res.ok) {
+        const data: { error?: string } = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Submission failed");
+      }
+      setSubmitted(true);
+      toast("success", "Message sent! We'll get back to you within 24 hours.");
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Something went wrong.";
+      toast("error", msg + " Please try again or email us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputClass = (field: keyof Errors) =>
